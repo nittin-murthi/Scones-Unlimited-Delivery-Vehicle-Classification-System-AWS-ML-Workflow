@@ -1,81 +1,85 @@
-# ML Workflow for Scones Unlimited on Amazon SageMaker
+# AWS SageMaker ML Pipeline: Vehicle Classification System for Scones Unlimited
 
-Welcome to the ML Workflow for Scones Unlimited project! As a Machine Learning Engineer at Scones Unlimited, you'll be embarking on a journey to build an image classification model that can distinguish between bicycles and motorcycles. This model will have a multitude of applications, from optimizing delivery routes to identifying defects in products. With the power of AWS SageMaker, Lambda functions, and Step Functions, you'll create an end-to-end ML workflow that's scalable, efficient, and dependable. 🛠️📷
+Welcome to my comprehensive machine learning project! I've developed an intelligent image classification system that automatically identifies delivery vehicles (bicycles vs motorcycles) to optimize Scones Unlimited's delivery operations. This end-to-end solution leverages AWS cloud services including SageMaker, Lambda, and Step Functions to create a production-ready ML workflow that enhances logistics efficiency and customer satisfaction. 🚀🤖
 
-## Getting Started
+## Quick Start Guide
 
-* Proceed with the project within the [jupyter notebook](SconesUnlimited.ipynb).
+* Begin your journey by opening the [main project notebook](SconesUnlimited.ipynb).
 
-### Dependencies
+### System Requirements
 
 ```
 Python 3.8
 scikit-learn latest
 ```
 
-### Installation
-For this project, it is highly recommended to use Sagemaker Studio from the course provided AWS workspace. This will simplify much of the installation needed to get started.
 
-For local development, you will need to setup a jupyter lab instance.
-* Follow the [jupyter install](https://jupyter.org/install.html) link for best practices to install and start a jupyter lab instance.
-* If you have a python virtual environment already installed you can just `pip` install it.
+### Environment Setup
+I strongly recommend using SageMaker Studio from the provided AWS workspace for optimal performance and seamless integration.
+
+For local development enthusiasts, you'll need to configure a Jupyter Lab environment:
+* Visit the [official Jupyter installation guide](https://jupyter.org/install.html) for detailed setup instructions.
+* If you already have a Python virtual environment, simply install Jupyter Lab:
 ```
 pip install jupyterlab
 ```
 
-## Project Overview 📋
 
-In this project, I've designed and implemented a scalable image classification model using Amazon SageMaker. My goal was to create a workflow that can distinguish between bicycles and motorcycles, thus aiding Scones Unlimited in assigning delivery professionals to appropriate orders. The project unfolds in several key steps:
+## Project Summary 📊
 
-### Step 1: Data Staging 📂
+I've architected and deployed a robust image classification pipeline using Amazon SageMaker's powerful ML capabilities. The primary objective was to develop an intelligent system that can accurately differentiate between bicycles and motorcycles, enabling Scones Unlimited to automatically assign delivery professionals to appropriate orders based on vehicle type. The implementation follows a systematic approach:
 
-- Set up a SageMaker Studio workspace.
-- Prepared and loaded the data into SageMaker.
-- Ensured the data is preprocessed and ready for training.
+### Phase 1: Data Engineering & Preparation 📁
 
-### Step 2: Model Training and Deployment 🚀
+- Configured and launched SageMaker Studio workspace.
+- Engineered comprehensive data preprocessing pipeline.
+- Validated data quality and readiness for model training.
 
-- Trained a machine learning model on SageMaker.
-- Deployed the trained model as an API endpoint.
-- Constructed an API endpoint that's linked to the deployed model.
+### Phase 2: ML Model Development & Deployment 🚀
 
-### Step 3: Lambdas and Step Function Workflow ⚙️
+- Trained a sophisticated image classification model using SageMaker.
+- Successfully deployed the trained model as a production-ready API endpoint.
+- Established secure API connectivity for real-time inference.
 
-- Developed three Lambda functions to orchestrate the workflow:
-  1. Retrieve image data as an event.
-  2. Perform image classification.
-  3. Filter out low-confidence inferences.
-- Created a Step Function to weave the Lambdas into a seamless workflow.
+### Phase 3: Serverless Architecture & Workflow Orchestration ⚙️
 
-### Step 4: Testing and Evaluation 🧪
+- Designed and implemented three specialized Lambda functions:
+  1. Image data extraction and serialization service.
+  2. Real-time image classification engine.
+  3. Confidence-based inference filtering system.
+- Engineered a sophisticated Step Function workflow to coordinate all Lambda operations seamlessly.
 
-- Rigorously tested and evaluated the performance of your ML workflow.
-- Ensured the classification model achieves a test accuracy above **94%**.
+### Phase 4: Performance Validation & Quality Assurance 🧪
 
-### Step 5: Cleanup Cloud Resources ♻️
+- Conducted comprehensive testing and evaluation of the ML pipeline.
+- Achieved and maintained classification accuracy exceeding **94%** on test datasets.
 
-- Wraped up the project by cleaning up unnecessary cloud resources.
+### Phase 5: Resource Optimization & Cleanup ♻️
 
-## Skills Applied 🧠
+- Implemented systematic cleanup procedures for cloud resources.
 
-Throughout this project, I've applied the following skills:
+## Technical Expertise Demonstrated 🧠
 
-- Utilized SageMaker Studio for a productive ML environment.
-- Trained and deployed ML models on SageMaker.
-- Created and managed AWS Lambda functions.
-- Designed and implemented Step Functions to compose Lambda workflows.
-- Monitored and evaluated model performance using SageMaker Model Monitor.
-- Visualized and interpreted Model Monitor data.
+This project showcases my proficiency in:
+
+- SageMaker Studio environment configuration and optimization.
+- Advanced ML model training and deployment strategies.
+- AWS Lambda function development and management.
+- Step Functions workflow design and implementation.
+- SageMaker Model Monitor integration for performance tracking.
+- Data visualization and analytical interpretation.
 
 ----
-1. The **Serialize Image Data Lambda Function** takes the address of an image hosted in S3, then serializes and returns a JSON
-object.
-2. The **Infer Serialized Image Data** takes the JSON object returned from 1 and passes it to an end point and collectd the result
-as a JSON Object.
-3. The **Filter Results Lambda Function** takes the inference data from 2 and filters only the images that meet the defined threshold.  
+## Lambda Function Architecture
 
-## Step Functions Output Graph
-![](https://github.com/Arnit9/ML-Workflow-for-Scones-Unlimited-on-Amazon-SageMaker/blob/master/images/stepfunction-graph.png)
+1. **Image Serialization Service**: Processes S3-hosted images and converts them to JSON format for downstream processing.
+2. **Classification Engine**: Executes real-time inference using the deployed SageMaker endpoint and returns structured results.
+3. **Quality Control Filter**: Implements confidence threshold filtering to ensure only high-quality predictions proceed to production systems.
 
-## Step Function Table View Output
-![](https://github.com/Arnit9/ML-Workflow-for-Scones-Unlimited-on-Amazon-SageMaker/blob/master/images/stepfunction-tableview.png)
+## Workflow Visualization
+
+### Step Functions Execution Graph
+![Step Functions Graph](./images/stepfunction-graph.png)
+
+### Step Function Execution Details
+![Step Functions Table View](./images/stepfunction-tableview.png)
