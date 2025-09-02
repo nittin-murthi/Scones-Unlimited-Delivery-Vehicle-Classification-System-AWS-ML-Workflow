@@ -79,6 +79,3 @@ as a JSON Object.
 
 ## Step Function Table View Output
 ![](https://github.com/Arnit9/ML-Workflow-for-Scones-Unlimited-on-Amazon-SageMaker/blob/master/images/stepfunction-tableview.png)
-
----
-Feel free to connect for any inquiries or insights. Happy building and scone-classifying! 🥐🤖
